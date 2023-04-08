@@ -1,5 +1,5 @@
 <?php
-if ($e->getMessage()) {
+if (!$e->getMessage()) {
     $title = "เกิดข้อผิดพลาด";
 } else {
     $title = "เชื่อมต่อฐานข้อมูลสำเร็จ";
@@ -15,7 +15,7 @@ require "components/Header.php";
     }
 </style>
 
-<?php if ($e->getMessage()) { ?>
+<?php if (!$e->getMessage()) { ?>
     <h1 class="text-warning mt-5"><i class="far fa-exclamation"></i> มีข้อผิดพลาดกับการเชื่อมต่อ</h1>
     <p>เกิดอะไรขึ้น: <span class="text-danger"><i class="fas fa-database"></i> <?= $e->getMessage() ?></span></p>
     <p>เข้าไปแก้ไฟล์ได้ที่: <span class="text-danger"><i class="fas fa-file-edit"></i> <?= $part_error ?></span></p>

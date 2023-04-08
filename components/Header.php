@@ -14,7 +14,7 @@ $REQUEST_URI = "$_SERVER[REQUEST_URI]";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <?php if ($title == true) { ?>
-        <title><?= $title ?> | Variz</title>
+        <title><?= $title ?> | <?= $web['title']; ?></title>
     <?php } else if (http_response_code() == 404) { ?>
         <title><?= $response_code ?> | ไม่พบหน้าที่ต้องการ</title>
     <?php } else if (http_response_code() == 500) { ?>
@@ -22,10 +22,10 @@ $REQUEST_URI = "$_SERVER[REQUEST_URI]";
     <?php } else if (http_response_code() == $response_code) { ?>
         <title>Error: <?= $response_code ?> | เว็บเกิดข้อผิดพลาด</title>
     <?php } else { ?>
-        <title>Variz</title>
+        <title><?= $web['title']; ?> : <?= $web['description']; ?></title>
     <?php } ?>
 
-    <link rel="icon" href="<?= $url ?>/assets/images/logo.png?v=1" type="ismage/x-icon">
+    <link rel="icon" href="<?= $url ?><?= $web['logo']; ?>?v=1" type="ismage/x-icon">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

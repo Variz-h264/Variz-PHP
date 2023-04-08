@@ -19,4 +19,7 @@ try {
     exit;
 }
 
+
+
 require_once __DIR__ . "/sql.php";
+require_once __DIR__ . "/status.php";

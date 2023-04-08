@@ -9,6 +9,7 @@ use AltoRouter as Router;
 
 require_once __DIR__ . '/vendor/autoload.php';
 $router = new Router();
+
 $router->map("GET", "/", function () {
     require "views/home.php";
 });
@@ -16,6 +17,7 @@ $router->map("GET", "/test", function () {
 
     require "views/test.php";
 });
+
 $match = $router->match();
 if (is_array($match) && is_callable($match['target'])) {
     call_user_func_array($match['target'], $match['params']);
